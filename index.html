@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center{
+	text-align:center;
+	font-size:10vw;
+	font-size:10vh;
+	position:absolute;left:50%;top:50%;
+	transform:translate(-50%,-50%);
+	padding:10px;
+	white-space:nowrap;
+}
+.new{
+	color:black;
+	background-color:#CBCBCB;
+	border:5px solid red;
+	border-radius:15px;
+	text-decoration:none;
+	padding:10px;
+}
+body{
+	zoom:60%;
+	margin-left:20px;
+	margin-right:20px;
+	background-color:#E2E2E2;
+}
+img{
+	margin-bottom:200px;
+}
+</style>
+</head>
+<body>
+	<div class="center">
+		<img id="img" src="http://shorturl.at/alvJK"/>
+		<br>
+		<a class="new" id="txt" onclick="test()">-Allumer le spot-</a>
+	</div>
+<script>
+
+var srcOff='http://shorturl.at/alvJK';
+var srcOn='http://shorturl.at/puEQY';
+
+function test(){
+	if(document.getElementById('img').src==srcOff){
+		document.getElementById('img').src=srcOn;
+		document.getElementById('txt').text='-Eteindre le spot-';
+		}
+	else if(document.getElementById('img').src==srcOn){
+		document.getElementById('img').src=srcOff;
+		document.getElementById('txt').text='-Allumer le spot-';
+		}
+		
+	var xmlHttp=new XMLHttpRequest();
+	xmlHttp.open('GET','http://192.168.1.30/ip_esp8266_spot',true);
+	xmlHttp.send();
+	//https://img.icons8.com/external-flatart-icons-solid-flatarticons/256/000000/external-lamp-smart-home-flatart-icons-solid-flatarticons.png
+	//https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/256/000000/external-lamp-smart-home-flatart-icons-lineal-color-flatarticons.png
+}
+</script>
+</body>
+</html>
+  
