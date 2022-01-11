@@ -40,11 +40,16 @@ img{
 
 var srcOff='https://rb.gy/cbien5';
 var srcOn='https://rb.gy/gadgru';
+var url=window.location.href;
+var urlParams=new URLSearchParams(url);
+if (urlParams.has("state")){
+	urlParams.get("state");
+}
 
 function test(){
 	if(document.getElementById('img').src==srcOff){
 		document.getElementById('img').src=srcOn;
-		document.getElementById('txt').text='-Eteindre le spot-';
+		document.getElementById('txt').text='-Éteindre le spot-';
 		}
 	else if(document.getElementById('img').src==srcOn){
 		document.getElementById('img').src=srcOff;
