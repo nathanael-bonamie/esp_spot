@@ -38,14 +38,16 @@ img{
 	</div>
 <script>
 	
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open("HEAD", document.URL ,true);
-xmlhttp.onreadystatechange=function() {
-if (xmlhttp.readyState==4) {
-  alert("rien"/*xmlhttp.getAllResponseHeaders()*/);
+let xhr = new XMLHttpRequest();
+xhr.open('GET', document.URL);
+xhr.send();
+xhr.onload = function() {
+  if (xhr.status != 200) {
+    alert(`Error ${xhr.status}: ${xhr.statusText}`);
+  } else {
+    alert(xhr.getResponseHeader('GPIO-State'));
   }
-}
-xmlhttp.send();
+};
 	
 var srcOff='https://rb.gy/cbien5';
 var srcOn='https://rb.gy/gadgru';
