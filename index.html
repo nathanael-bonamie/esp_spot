@@ -37,11 +37,15 @@ img{
 		<a class="new" id="txt" onclick="test()">-Allumer le spot-</a>
 	</div>
 <script>
-var req = new XMLHttpRequest();
-req.open('GET', 'http://192.168.1.40/', false);
-req.send(null);
-var headers = req.getAllResponseHeaders().toLowerCase();
-alert(headers);
+	
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("HEAD", document.URL ,true);
+xmlhttp.onreadystatechange=function() {
+if (xmlhttp.readyState==4) {
+  alert(xmlhttp.getAllResponseHeaders());
+  }
+}
+xmlhttp.send();
 	
 var srcOff='https://rb.gy/cbien5';
 var srcOn='https://rb.gy/gadgru';
