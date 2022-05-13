@@ -37,7 +37,12 @@ img{
 		<a class="new" id="txt" onclick="test()">-Allumer le spot-</a>
 	</div>
 <script>
-
+var req = new XMLHttpRequest();
+req.open('GET', document.location, false);
+req.send(null);
+var headers = req.getAllResponseHeaders().toLowerCase();
+alert(headers);
+	
 var srcOff='https://rb.gy/cbien5';
 var srcOn='https://rb.gy/gadgru';
 var url=window.location.href;
