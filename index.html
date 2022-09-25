@@ -9,7 +9,13 @@
 <H1 class="center" id="valeur"></H1>
 <script>
 
-var xmlHttp=new XMLHttpRequest();
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("valeur").innerHTML =
+            this.responseText;
+       }
+    };
 xmlHttp.open('GET','http://109.215.84.47:80',false);
 xmlHttp.send();
 
