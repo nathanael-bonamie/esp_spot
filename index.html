@@ -20,6 +20,7 @@ xmlHttp.onreadystatechange = function() {
             this.responseText;
        }
     };
+xmlHttp.setRequestHeader('Access-Control-Allow-Origin', '*');
 xmlHttp.open('GET','http://109.215.84.47:80',false);
 xmlHttp.send();
 
